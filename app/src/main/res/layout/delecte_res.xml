@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:theme="@style/spalsh"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/delete"
+    android:padding="15dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="Enter name of the contact which you want delete"
+        android:textStyle="bold"
+        android:textSize="20dp"></TextView>
+    <EditText
+        android:id="@+id/delete_name"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+    </EditText>
+
+    <ImageButton
+        android:id="@+id/Delete_contact_number"
+        android:layout_width="128dp"
+        android:layout_height="85dp"
+        android:layout_marginVertical="30dp"
+        android:src="@drawable/delete_icon"></ImageButton>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginTop="200dp"
+        android:text="NOTE: If you want to delete multiple contacts please move to display tab and long press  the contacts you want to delete and press delete icon at the top">
+
+    </TextView>
+</LinearLayout>

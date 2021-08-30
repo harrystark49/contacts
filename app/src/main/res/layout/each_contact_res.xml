@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+
+    >
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/download"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:gravity="center"
+            android:id="@+id/name_of_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adamina"
+            android:textColor="@color/white"
+            android:textStyle="bold">
+        </TextView>
+        <TextView
+            android:gravity="center"
+            android:id="@+id/mail_of_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:fontFamily="@font/adamina"
+            android:inputType="textEmailAddress"
+            android:textStyle="bold">
+        </TextView>
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/number_of_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adamina"
+            android:textColor="@color/white"
+            android:textStyle="bold"></TextView>
+
+
+    <ImageView
+        android:id="@+id/seleted_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_select"
+        android:layout_gravity="right"
+        android:visibility="gone"
+        android:padding="5dp"
+        android:layout_marginTop="42dp"
+        ></ImageView>
+
+</androidx.cardview.widget.CardView>

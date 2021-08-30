@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    app:layout_constraintVertical_chainStyle="spread"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/welcome"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/uname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/almendra_bold_italic"
+        android:text="welcome"
+        android:textColor="#BCB4B4"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#1C1A1A"
+        android:fontFamily="@font/adamina"
+        android:text="add a contact"></Button>
+
+    <Button
+        android:id="@+id/display_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#1C1A1A"
+        android:fontFamily="@font/adamina"
+        android:text="Display contacts"></Button>
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#1C1A1A"
+        android:fontFamily="@font/adamina"
+        android:text="Delete a contact"></Button>
+
+    <Button
+        android:id="@+id/signout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#1C1A1A"
+        android:fontFamily="@font/adamina"
+        android:text="Sign out"></Button>
+
+
+</LinearLayout>
