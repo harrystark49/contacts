@@ -12,9 +12,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         var helper=myDBHelper(this)
         var db=helper.readableDatabase
-
 
         register.setOnClickListener {
             var intent= Intent(this,Register::class.java)
@@ -22,33 +22,39 @@ class MainActivity : AppCompatActivity() {
         }
         login.setOnClickListener {
             signin()
-            var arg= listOf<String>(PersonName.text.toString()).toTypedArray()
-            var curs=db.rawQuery("SELECT * FROM ADMIN WHERE UNAME =? ",arg)
-        if(curs.moveToNext()) {
-            var args= listOf<String>(PersonName.text.toString(),Password.text.toString()).toTypedArray()
-            var cursor=db.rawQuery("SELECT * FROM ADMIN WHERE UNAME =? AND PASS =?",args)
-            if (cursor.moveToNext()) {
+            var arg = listOf<String>(PersonName.text.toString()).toTypedArray()
+            var curs = db.rawQuery("SELECT * FROM ADMIN WHERE UNAME =? ", arg)
 
-                var s=cursor.getString(cursor.getColumnIndex("NAME"))
-                //
-                var intent = Intent(this, com.example.contacts.login::class.java)
-                intent.putExtra("name",s)
+            if (curs.moveToNext()) {
+                var args = listOf<String>(
+                    PersonName.text.toString(),
+                    Password.text.toString()
+                ).toTypedArray()
+                var cursor = db.rawQuery("SELECT * FROM ADMIN WHERE UNAME =? AND PASS =?", args)
 
-                startActivity(intent)
+                if (cursor.moveToNext()) {
+                    var s = cursor.getString(cursor.getColumnIndex("NAME"))
+                    var intent = Intent(this, com.example.contacts.login::class.java)
+                    intent.putExtra("name", s)
+                    startActivity(intent)
+                    PersonName.setText("")
+                    Password.setText("")
+                    PersonName.requestFocus()
+                } else {
+                    Toast.makeText(this, "password is wrong", Toast.LENGTH_LONG).show()
+                }
+            } else {
                 PersonName.setText("")
                 Password.setText("")
                 PersonName.requestFocus()
-                }else{
-                Toast.makeText(this,"password is wrong",Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    this,
+                    "user is not REGISTERED please register and again login",
+                    Toast.LENGTH_LONG
+                ).show()
             }
-            }
-        else{
-            PersonName.setText("")
-            Password.setText("")
-            PersonName.requestFocus()
-            Toast.makeText(this,"user is not REGISTERED please register and again login",Toast.LENGTH_LONG).show()
         }
-        }
+
     }
 
     private fun signin() {
@@ -64,5 +70,4 @@ class MainActivity : AppCompatActivity() {
             input_pass.isErrorEnabled=false
         }
     }
-
 }
