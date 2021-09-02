@@ -18,21 +18,33 @@ class contact_adapter(var context: Context,var contact_list: ArrayList<contact_m
     var  db=helper.readableDatabase
 
     var x=false
+    var seleteditemmode=false
     inner class view(var view:View):RecyclerView.ViewHolder(view){
-
        fun data_set(contact:contact_model?,pos: Int){
            itemView.name_of_contact.text="Name: "+ contact!!.name
            itemView.mail_of_contact.text="Email: "+contact!!.email
            itemView.number_of_contact.text="Number: "+contact!!.number
 
-               view.radio.visibility=View.VISIBLE
 
            itemView.linear.setOnLongClickListener {
-               markselecteditems(pos)
+
+               if(seleteditemmode==false){
+                   markselecteditems(pos)
+                   seleteditemmode=true
+               }
+               true
            }
-           itemView.linear.setOnClickListener {
-               deselectitem(pos)
+           if(seleteditemmode==true && contact.is_seleted==false){
+               itemView.linear.setOnClickListener {
+                   markselecteditems(pos)
+               }
            }
+           else{
+               itemView.linear.setOnClickListener {
+                   deselectitem(pos)
+               }
+           }
+
            if(contact.is_seleted==true){
                itemView.seleted_item.visibility=View.VISIBLE
            }else{
@@ -69,6 +81,7 @@ class contact_adapter(var context: Context,var contact_list: ArrayList<contact_m
                     }
                 }
             }
+
             show_delete_icon(true)
             notifyDataSetChanged()
             return true

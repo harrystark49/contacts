@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"user is not REGISTERED please register and again login",Toast.LENGTH_LONG).show()
         }
         }
-
     }
 
     private fun signin() {
